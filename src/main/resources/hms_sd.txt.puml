@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor User
+participant "Hotel" as hotel
+participant "Room" as room
+participant "Reservation" as reservation
+
+User -> hotel: makeReservation(guestName, roomNumber)
+activate hotel
+hotel -> hotel: validateRoom(roomNumber)
+hotel -> room: isAvailable(roomNumber)
+activate room
+
+@enduml

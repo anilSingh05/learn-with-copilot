@@ -1,0 +1,16 @@
+@startuml
+
+left to right direction
+actor user
+
+rectangle hotelManagementSystem {
+    usecase "Make Reservation" as UC1
+    usecase "Display Rooms" as UC2
+    usecase "Display Reservation" as UC3
+
+    user --> UC1
+    user --> UC2
+    user --> UC3
+}
+
+@enduml

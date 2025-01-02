@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Hotel{
+    -name: String
+    -address: String
+    -rooms: Room[]
+    +Hotel(name: String, address: String)
+    +getName(): String
+    +setName(name: String): void
+    +getAddress(): String
+    +setAddress(address: String): void
+    +getRooms(): Room[]
+    +setRooms(rooms: Room[]): void
+    +addRoom(room: Room): void
+    +removeRoom(room: Room): void
+}
+
+class Room{
+    -number: int
+    -type: String
+    -price: double
+    -hotel: Hotel
+    +Room(number: int, type: String, price: double, hotel: Hotel)
+    +getNumber(): int
+    +setNumber(number: int): void
+    +getType(): String
+    +setType(type: String): void
+    +getPrice(): double
+    +setPrice(price: double): void
+    +getHotel(): Hotel
+    +setHotel(hotel: Hotel): void
+}
+
+class Reservation{
+    -id: int
+    -checkIn: Date
+    -checkOut: Date
+    -room: Room
+    +Reservation(id: int, checkIn: Date, checkOut: Date, room: Room)
+    +getId(): int
+    +setId(id: int): void
+    +getCheckIn(): Date
+    +setCheckIn(checkIn: Date): void
+    +getCheckOut(): Date
+    +setCheckOut(checkOut: Date): void
+    +getRoom(): Room
+    +setRoom(room: Room): void
+}
+
+Hotel --> Room: contains
+Hotel --> Reservation: contains
+Room --> Reservation: contains
+
+@enduml
